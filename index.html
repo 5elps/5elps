@@ -3,10 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5elp's Website - Contact Me</title>
+    <title>5elp's Website</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Your additional styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav a:hover {
+            color: #666;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .section p {
+            line-height: 1.8;
+        }
+
         .contact-form {
             max-width: 400px;
             margin: 0 auto;
@@ -47,25 +100,50 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to 5elp's Website - Contact Me</h1>
+        <h1>Welcome to 5elp's Website</h1>
     </header>
 
-    <main>
-        <div class="contact-form">
-            <form id="contactForm">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>I'm passionate about creating websites and applications that are user-friendly and aesthetically pleasing. With several years of experience in web development, I strive to deliver high-quality solutions tailored to meet the needs of my clients.</p>
+        </section>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+        <section id="services" class="section">
+            <h2>Services</h2>
+            <ul>
+                <li>Custom Web Development</li>
+                <li>Responsive Design</li>
+                <li>E-commerce Solutions</li>
+                <li>Website Maintenance</li>
+                <li>SEO Optimization</li>
+            </ul>
+        </section>
 
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </main>
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; Made in 2024 by 5elp's Website. All rights reserved.</p>
@@ -107,6 +185,11 @@
                     alert('Failed to send message. Please try again later.');
                 });
             });
+        });
+    </script>
+</body>
+</html>
+
         });
     </script>
 </body>
