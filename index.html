@@ -3,30 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5elp's Website</title>
+    <title>5elp's Website - Contact Me</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Your additional styles here */
+        .contact-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to 5elp's Website</h1>
+        <h1>Welcome to 5elp's Website - Contact Me</h1>
     </header>
-    
+
     <main>
-        <p>This is a simple website created using HTML and CSS.</p>
+        <div class="contact-form">
+            <form id="contactForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </main>
-    
+
     <footer>
         <p>&copy; Made in 2024 by 5elp's Website. All rights reserved.</p>
     </footer>
 
     <script>
-        // JavaScript to reload the page when clicked
         document.addEventListener('DOMContentLoaded', function() {
-            document.body.addEventListener('click', function() {
-                window.location.reload(true); // Reloads the page and bypasses the cache
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Collect form data
+                const formData = new FormData(contactForm);
+                const formDataJson = {};
+                formData.forEach((value, key) => { formDataJson[key] = value; });
+                
+                // Send form data to Discord webhook
+                const webhookUrl = 'https://discord.com/api/webhooks/1254885392457535590/VS50ak-9sTzhrx8yWJJTaDwjL5qgMA7nVs_H6blPpf9dDdbzHrdUfL1dOsWmpdpt7cEZ';
+                
+                fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content: `New contact form submission:\n\nName: ${formDataJson.name}\nEmail: ${formDataJson.email}\nMessage: ${formDataJson.message}`
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Message sent successfully!');
+                        contactForm.reset(); // Clear form fields after successful submission
+                    } else {
+                        alert('Failed to send message. Please try again later.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message:', error);
+                    alert('Failed to send message. Please try again later.');
+                });
             });
         });
     </script>
