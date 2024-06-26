@@ -3,80 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5elp's Website</title>
+    <title>5elp's Website - Home</title>
     <style>
+        /* Add your CSS styling here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
             background-color: #f4f4f4;
         }
-        header {
+        header, footer {
             background: #333;
             color: #fff;
-            padding: 1em 0;
             text-align: center;
+            padding: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #555;
+        }
+        nav a {
+            padding: 14px 20px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #444;
         }
         main {
             padding: 20px;
         }
         .section {
-            margin: 20px 0;
-            padding: 20px;
             background: #fff;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .section h2 {
-            margin-top: 0;
-        }
-        .youtube-channels, .youtube-videos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-around;
-        }
-        .youtube-channel, .youtube-video {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-        }
-        .youtube-channel img {
-            max-width: 100px;
-            border-radius: 50%;
-        }
-        .youtube-video iframe {
-            width: 100%;
-            height: 250px;
-            border: none;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-form input, .contact-form textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .contact-form button {
-            padding: 10px;
-            background: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background: #333;
-            color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
     </style>
 </head>
@@ -84,95 +48,20 @@
     <header>
         <h1>Welcome to 5elp's Website</h1>
     </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="youtube.html">YouTube</a>
+        <a href="contact.html">Contact</a>
+    </nav>
     <main>
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>Hello! I'm 5elp, a passionate content creator and developer. I love making videos and building interesting projects. This website showcases my work and allows you to get in touch with me.</p>
-        </section>
-        
-        <section id="youtube" class="section">
-            <h2>My YouTube Channels</h2>
-            <div class="youtube-channels">
-                <div class="youtube-channel">
-                    <h3>5elp's Channel</h3>
-                    <a href="https://www.youtube.com/@5elp" target="_blank">
-                        <img src="https://yt3.ggpht.com/ytc/AAUvwngyQ0WKmTQ6ONcS8x4PZAkmeQDmjdfFJ9Y2eEzZ-w=s88-c-k-c0x00ffffff-no-rj" alt="5elp's Channel">
-                    </a>
-                </div>
-                <div class="youtube-channel">
-                    <h3>6elp's Channel</h3>
-                    <a href="https://www.youtube.com/@6elp" target="_blank">
-                        <img src="https://yt3.ggpht.com/ytc/AAUvwnjJY2gDYYROVtRURAc6JMdO9eN9ZZ4tHIswZNpx=s88-c-k-c0x00ffffff-no-rj" alt="6elp's Channel">
-                    </a>
-                </div>
-            </div>
-            <h2>Featured Videos</h2>
-            <div class="youtube-videos">
-                <div class="youtube-video">
-                    <iframe src="https://www.youtube.com/embed/r201N0DmRAg" allowfullscreen></iframe>
-                </div>
-                <div class="youtube-video">
-                    <iframe src="https://www.youtube.com/embed/Q2U-QKe-ExE" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact Me</h2>
-            <p>If you have any questions or just want to say hi, feel free to contact me using the form below:</p>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+        <section class="section">
+            <h2>Home Page</h2>
+            <p>This is the home page of 5elp's website. Explore the links above to learn more about me, watch my YouTube videos, or contact me.</p>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 5elp. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Gather form data
-                const formData = new FormData(contactForm);
-                const formDataJson = {};
-                formData.forEach((value, key) => { formDataJson[key] = value; });
-
-                // Send form data to Discord webhook
-                const webhookUrl = 'https://discord.com/api/webhooks/1254885392457535590/VS50ak-9sTzhrx8yWJJTaDwjL5qgMA7nVs_H6blPpf9dDdbzHrdUfL1dOsWmpdpt7cEZ';
-                fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        content: `New contact form submission:\n\nName: ${formDataJson.name}\nEmail: ${formDataJson.email}\nMessage: ${formDataJson.message}`
-                    })
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Message sent successfully!');
-                        contactForm.reset(); // Clear form fields after successful submission
-                    } else {
-                        alert('Failed to send message. Please try again later.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error sending message:', error);
-                    alert('Failed to send message. Please try again later.');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
